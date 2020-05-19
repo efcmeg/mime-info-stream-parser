@@ -2,7 +2,9 @@
 
 > Convert freedesktop mime info XML to a simple JSON dictionary.
 
-The freedesktop project provides an XML spec and 700+ mime type descriptions. SAX parser is used to convert the XML to a JSON string intended to be written to a file and imported:
+The [freedesktop project](https://www.freedesktop.org/) provides an [XML spec](https://freedesktop.org/wiki/Specifications/shared-mime-info-spec/) and [700+ mime type descriptions](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/blob/master/data/freedesktop.org.xml.in). 
+
+The parser implements a [transform stream](https://nodejs.org/api/stream.html#stream_implementing_a_transform_stream) using [sax js](https://www.npmjs.com/package/sax) internally, converting freedesktop mime info XML to a JSON stream. Wriiten to file, the output can be used:
 ```ts
 // tsconfig.json compilerOptions.resolveJsonModule = true
 import db from './db.json';
@@ -31,15 +33,45 @@ console.log(db['image/pdf']);
 }
 */
 ```
-## Usage
+Mime type aliases are expanded to full entries. Each entry value is of type:
 ```ts
-  const read = createReadStream('./freedesktop.xml', {
+export interface MimeInfoItem {
+  comment: string;
+  acronym?: string;
+  acronymExpanded?: string;
+}
+```
+```ts
+import { MimeInfoItem } from 'mime-info-stream-parser';
+```
+## Usage
+```sh
+yarn add mime-info-stream-parser
+```
+Typescript
+```ts
+  import { pipeline } from 'stream';
+  import { createWriteStream, createReadStream } from 'fs';
+  import { MimeInfoStreamParser } from 'mime-info-stream-parser';
+
+  const read = createReadStream('./freedesktop.org.xml.in', {
     encoding: 'utf-8',
   });
+  const write = createWriteStream(`./db.json`, {
+    encoding: 'utf-8'
+  });
+
   const mimeInfo = new MimeInfoStreamParser();
-  const stream = pipeline(read, mimeInfo, (err) => {
+
+  pipeline(read, mimeInfo, write, (err) => {
     if (err) {
       console.error(err.message);
     }
   });
 ```
+## Tests
+```sh
+yarn test
+```
+## License
+MIT
