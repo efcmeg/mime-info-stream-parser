@@ -11,7 +11,7 @@
   },
   "homepage": "https://github.com/efcmeg/mime-info-stream-parser#mime-info-stream-parser",
   "license": "MIT",
-  "keywords": [],
+  "keywords": ["mimetype", "mime", "mime-info"],
   "scripts": {
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
