@@ -6,6 +6,10 @@
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": "https://github.com/efcmeg/mime-info-stream-parser",
+    "bugs": {
+    "url": "https://github.com/efcmeg/mime-info-stream-parser/issues"
+  },
+  "homepage": "https://github.com/efcmeg/mime-info-stream-parser#mime-info-stream-parser",
   "license": "MIT",
   "keywords": [],
   "scripts": {
