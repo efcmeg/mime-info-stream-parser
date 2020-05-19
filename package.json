@@ -9,6 +9,7 @@
     "bugs": {
     "url": "https://github.com/efcmeg/mime-info-stream-parser/issues"
   },
+  "author": {"name": "Ed Goubert"},
   "homepage": "https://github.com/efcmeg/mime-info-stream-parser#mime-info-stream-parser",
   "license": "MIT",
   "keywords": ["mimetype", "mime", "mime-info"],
