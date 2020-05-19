@@ -4,7 +4,7 @@
 
 The [freedesktop project](https://www.freedesktop.org/) provides an [XML spec](https://freedesktop.org/wiki/Specifications/shared-mime-info-spec/) and [700+ mime type descriptions](https://gitlab.freedesktop.org/xdg/shared-mime-info/-/blob/master/data/freedesktop.org.xml.in). 
 
-The parser implements a [transform stream](https://nodejs.org/api/stream.html#stream_implementing_a_transform_stream) using [sax js](https://www.npmjs.com/package/sax) internally, converting freedesktop mime info XML to a JSON stream. Wriiten to file, the output can be used:
+The parser implements a [transform stream](https://nodejs.org/api/stream.html#stream_implementing_a_transform_stream) using [sax js](https://www.npmjs.com/package/sax) internally, converting freedesktop mime info XML to a JSON stream. Written to file, the output can be used:
 ```ts
 // tsconfig.json compilerOptions.resolveJsonModule = true
 import db from './db.json';
