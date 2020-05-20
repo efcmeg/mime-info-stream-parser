@@ -3,9 +3,7 @@ build
 test
 src/**.js
 .idea/*
-
+yarn.lock
 coverage
 .nyc_output
 *.log
-
-package-lock.json
