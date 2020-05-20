@@ -1,18 +1,24 @@
 {
   "name": "mime-info-stream-parser",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "Convert freedesktop mime info XML to a JSON dictionary.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
   "repository": "https://github.com/efcmeg/mime-info-stream-parser",
-    "bugs": {
+  "bugs": {
     "url": "https://github.com/efcmeg/mime-info-stream-parser/issues"
   },
-  "author": {"name": "Ed Goubert"},
+  "author": {
+    "name": "Ed Goubert"
+  },
   "homepage": "https://github.com/efcmeg/mime-info-stream-parser#mime-info-stream-parser",
   "license": "MIT",
-  "keywords": ["mimetype", "mime", "mime-info"],
+  "keywords": [
+    "mimetype",
+    "mime",
+    "mime-info"
+  ],
   "scripts": {
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
