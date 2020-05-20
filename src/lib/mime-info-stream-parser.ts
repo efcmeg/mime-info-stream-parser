@@ -36,7 +36,7 @@ export class MimeInfoStreamParser extends Transform {
 
   public _transform(
     chunk: Buffer | string,
-    encoding: string,
+    encoding: BufferEncoding,
     callback: () => void
   ): void {
     this._sax.write(chunk, encoding);
