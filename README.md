@@ -1,7 +1,7 @@
 # mime-info-stream-parser
 
 [![Build Status](https://travis-ci.org/efcmeg/mime-info-stream-parser.svg?branch=master)](https://travis-ci.org/efcmeg/mime-info-stream-parser)
-[![codecov](https://codecov.io/gh/efcmeg/mime-info-stream-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/efcmeg/mime-info-stream-parser)
+[![Coverage Status](https://coveralls.io/repos/github/efcmeg/mime-info-stream-parser/badge.svg?branch=master)](https://coveralls.io/github/efcmeg/mime-info-stream-parser?branch=master)
 
 > Convert freedesktop mime info XML to a simple JSON dictionary.
 
