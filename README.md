@@ -1,5 +1,6 @@
 # mime-info-stream-parser
 
+[![Npm Version](https://img.shields.io/npm/v/mime-info-stream-parser.svg)](https://npmjs.com/package/mime-info-stream-parser)
 [![Build Status](https://travis-ci.org/efcmeg/mime-info-stream-parser.svg?branch=master)](https://travis-ci.org/efcmeg/mime-info-stream-parser)
 [![Coverage Status](https://coveralls.io/repos/github/efcmeg/mime-info-stream-parser/badge.svg?branch=master)](https://coveralls.io/github/efcmeg/mime-info-stream-parser?branch=master)
 

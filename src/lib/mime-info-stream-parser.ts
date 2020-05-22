@@ -119,19 +119,30 @@ export class MimeInfoStreamParser extends Transform {
   }
 
   private _onCloseMimeInfo(): void {
-    this._trackedAliases.length && this._pushSeparator();
-    this._trackedAliases.forEach((tracked: MimeInfoTrackedAlias) => {
-      tracked &&
-        tracked.aliases &&
-        tracked.aliases
-          .filter((alias: string) => !this._trackedMimeType(alias))
-          .forEach((alias: string, index: number, array: string[]) => {
-            this._pushItem(this._trackMimeType(alias), tracked.item);
-            index !== array.length - 1 && this._pushSeparator();
-          });
-    });
     this._openMimeInfo = false;
+    this._trackedAliases.forEach(
+      (tracked: MimeInfoTrackedAlias, trackedIndex: number) =>
+        tracked && this._pushAliasedItems(tracked, trackedIndex)
+    );
     this._pushEnd();
+  }
+
+  private _pushAliasedItems(
+    trackedAlias: MimeInfoTrackedAlias,
+    trackedIndex: number
+  ): void {
+    trackedAlias.aliases &&
+      trackedAlias.aliases.forEach(
+        (alias: string, aliasIndex: number, aliases: string[]) => {
+          !this._trackedMimeType(alias) &&
+            this._pushItem(
+              this._trackMimeType(alias),
+              trackedAlias.item,
+              trackedIndex !== this._trackedAliases.length - 1 ||
+                aliasIndex !== aliases.length - 1
+            );
+        }
+      );
   }
 
   private _pushStart(): void {
@@ -149,11 +160,13 @@ export class MimeInfoStreamParser extends Transform {
 
   private _pushItem(
     key: string | null,
-    data: MimeInfoItem | MimeInfoTrackedAlias | null
+    data: MimeInfoItem | MimeInfoTrackedAlias | null,
+    pushSeparator = true
   ): void {
     this.push(
       '  ' + JSON.stringify(key) + ': ' + JSON.stringify(data, null, 4)
     );
+    (this._openMimeInfo || pushSeparator) && this._pushSeparator();
   }
 
   private _onOpenMimeType(tag: Tag): void {
@@ -162,7 +175,7 @@ export class MimeInfoStreamParser extends Transform {
   }
 
   private _addMimeType(type: string): void {
-    this._mimeTypes.length ? this._pushSeparator() : this._pushStart();
+    !this._mimeTypes.length && this._pushStart();
     this._openMimeType = this._trackMimeType(type);
   }
 
