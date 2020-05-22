@@ -59,7 +59,7 @@ import { MimeInfoItem } from 'mime-info-stream-parser';
 yarn add mime-info-stream-parser
 ```
 
-TS
+Typescript
 
 ```ts
 import { pipeline } from 'stream';
@@ -82,7 +82,7 @@ pipeline(read, mimeInfo, write, (err) => {
 });
 ```
 
-JS
+Node.js
 
 ```js
 const { MimeInfoStreamParser } = require('mime-info-stream-parser');
@@ -92,7 +92,7 @@ const { MimeInfoStreamParser } = require('mime-info-stream-parser');
 ## Tests
 
 ```sh
-yarn test
+yarn && yarn test
 ```
 
 ## License
