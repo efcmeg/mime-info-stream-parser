@@ -69,7 +69,7 @@ import { MimeInfoStreamParser } from 'mime-info-stream-parser';
 const read = createReadStream('./freedesktop.org.xml.in', {
   encoding: 'utf-8',
 });
-const write = createWriteStream(`./db.json`, {
+const write = createWriteStream('./db.json', {
   encoding: 'utf-8',
 });
 
@@ -89,10 +89,31 @@ const { MimeInfoStreamParser } = require('mime-info-stream-parser');
 // ...
 ```
 
-## Tests
+## Development
+
+```
+$ yarn && yarn test
+```
 
 ```sh
-yarn && yarn test
+$ yarn describe
+```
+
+```
+info:
+  Display information about the package scripts
+build:
+  Clean and rebuild the project
+fix:
+  Try to automatically fix any linting problems
+test:
+  Lint and unit test the project
+watch:
+  Watch and rebuild the project on save, then rerun relevant tests
+cov:
+  Rebuild, run tests, then create and open the coverage report
+reset:
+  Delete all untracked files and reset the repo to the last commit
 ```
 
 ## License
