@@ -1,6 +1,6 @@
 {
   "name": "mime-info-stream-parser",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Convert freedesktop mime info XML to a JSON dictionary.",
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
@@ -36,7 +36,9 @@
     "reset": "git clean -dfx && git reset --hard && npm i",
     "clean": "trash build test"
   },
-  "files": ["build/**/*"],
+  "files": [
+    "build/**/*"
+  ],
   "scripts-info": {
     "info": "Display information about the package scripts",
     "build": "Clean and rebuild the project",
