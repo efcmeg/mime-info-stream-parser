@@ -163,9 +163,9 @@ export class MimeInfoStreamParser extends Transform {
     data: MimeInfoItem | MimeInfoTrackedAlias | null,
     pushSeparator = true
   ): void {
-    this.push(
-      '  ' + JSON.stringify(key) + ': ' + JSON.stringify(data, null, 4)
-    );
+    const json =
+      '  ' + JSON.stringify(key) + ': ' + JSON.stringify(data, null, 4);
+    this.push(json.replace(/}/, '  }'));
     (this._openMimeInfo || pushSeparator) && this._pushSeparator();
   }
 
